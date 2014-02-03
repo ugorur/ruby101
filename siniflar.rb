@@ -1,18 +1,16 @@
 require 'dosya'
 
-class Ogrenci < Dosya
-	DOSYA = 'ogrenciler'
+class Siniflar < Dosya
+	DOSYA = 'siniflar'
 
 	def initialize
 		@veriler = Hash.new
 	end
 
 	def yeni
-		veri_al('Adi')
-		veri_al('Soyadi')
-		veri_al('Cep Numarasi')
-		veri_al('E-Posta Adresi')
-		veri_al('Sinifi')
+		veri_al('No')
+		veri_al('Ders')
+		veri_al('Ogrenci Sayisi')
 		self
 	end
 
@@ -21,8 +19,8 @@ class Ogrenci < Dosya
 	end
 
 	def listele
-		oku(DOSYA).each do |ogrenci_bilgileri|
-			veri_ver(ogrenci_bilgileri)
+		oku(DOSYA).each do |sinif_bilgileri|
+			veri_ver(sinif_bilgileri)
 		end
 	end
 
