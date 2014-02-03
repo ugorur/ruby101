@@ -1,20 +1,24 @@
-require 'hata'
+require './hata'
 
 class Dosya
-	def ekle(dosya_adi, veriler, sifirla = false)
+	def ekle(dosya_adi, veri, sifirla = false)
 		File.open(dosya_adi, sifirla ? 'w' : 'a') do |dosya|
-			dosya.puts(self.veriler(veriler))
+			dosya.puts(veriler(veri))
 		end
 	end
 
 	def oku (dosya_adi)
 		hata("Dosya henuz olusturulmamis") unless varmi? dosya_adi
 
+		v = []
+
 		File.open(dosya_adi) do |dosya|
 			dosya.each do |satir|
-				satir.split('||').map{ |veri| veri.split('=>').map{ |v| kurtar(v) } }.to_h unless satir.empty?
+				v << satir.split('||').map{ |veri| veri.split('=>').map{ |v| kurtar(v) } }.to_h unless satir.empty?
 			end
 		end
+
+		v
 	end
 
 	private 

@@ -1,4 +1,4 @@
-require 'dosya'
+require './dosya'
 
 class Siniflar < Dosya
 	DOSYA = 'siniflar'

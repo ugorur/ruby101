@@ -1,4 +1,4 @@
-require 'dosya'
+require './dosya'
 
 class Ogrenci < Dosya
 	DOSYA = 'ogrenciler'
